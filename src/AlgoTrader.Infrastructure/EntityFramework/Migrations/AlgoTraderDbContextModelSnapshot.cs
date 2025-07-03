@@ -34,6 +34,10 @@ namespace AlgoTrader.Infrastructure.EntityFramework.Migrations
                         .HasColumnType("timestamp with time zone")
                         .HasColumnName("date");
 
+                    b.Property<string>("Interval")
+                        .HasColumnType("text")
+                        .HasColumnName("interval");
+
                     b.Property<decimal>("Close")
                         .HasColumnType("numeric")
                         .HasColumnName("close");
@@ -41,11 +45,6 @@ namespace AlgoTrader.Infrastructure.EntityFramework.Migrations
                     b.Property<decimal>("High")
                         .HasColumnType("numeric")
                         .HasColumnName("high");
-
-                    b.Property<string>("Interval")
-                        .IsRequired()
-                        .HasColumnType("text")
-                        .HasColumnName("interval");
 
                     b.Property<decimal>("Low")
                         .HasColumnType("numeric")
@@ -59,7 +58,7 @@ namespace AlgoTrader.Infrastructure.EntityFramework.Migrations
                         .HasColumnType("numeric")
                         .HasColumnName("volume");
 
-                    b.HasKey("TickerId", "Date");
+                    b.HasKey("TickerId", "Date", "Interval");
 
                     b.HasIndex("Date")
                         .IsDescending()

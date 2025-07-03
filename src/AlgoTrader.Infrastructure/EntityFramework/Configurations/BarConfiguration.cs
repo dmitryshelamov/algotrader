@@ -11,7 +11,7 @@ internal sealed class BarConfiguration : IEntityTypeConfiguration<Bar>
     public void Configure(EntityTypeBuilder<Bar> builder)
     {
         builder.ToTable("bars");
-        builder.HasKey(x => new { x.TickerId, x.Date });
+        builder.HasKey(x => new { x.TickerId, x.Date, x.Interval });
         builder.Property(u => u.Date).HasColumnName("date");
         builder.Property(u => u.Open).HasColumnName("open");
         builder.Property(u => u.High).HasColumnName("high");

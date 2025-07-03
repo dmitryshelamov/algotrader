@@ -1,4 +1,6 @@
-﻿using AlgoTrader.Application.Contracts;
+﻿using System.Threading.RateLimiting;
+
+using AlgoTrader.Application.Contracts;
 using AlgoTrader.Application.Contracts.Enums;
 using AlgoTrader.Application.Services;
 using AlgoTrader.Infrastructure.CryptoClientsNet.ByBitExchange.Converters;
@@ -13,10 +15,21 @@ namespace AlgoTrader.Infrastructure.CryptoClientsNet.ByBitExchange;
 internal sealed class ByBitExchangeRestClient : IExchangeRestClient
 {
     private readonly BybitRestClient _client;
+    private readonly RateLimiter _rateLimiter;
 
     public ByBitExchangeRestClient()
     {
         _client = new BybitRestClient();
+        _rateLimiter = new TokenBucketRateLimiter(
+            new TokenBucketRateLimiterOptions
+            {
+                TokenLimit = 600,
+                QueueProcessingOrder = QueueProcessingOrder.OldestFirst,
+                QueueLimit = 0,
+                ReplenishmentPeriod = TimeSpan.FromSeconds(5),
+                TokensPerPeriod = 600,
+                AutoReplenishment = true
+            });
     }
 
     public async Task<List<BarInternal>> GetBars(

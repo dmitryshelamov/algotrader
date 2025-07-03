@@ -88,7 +88,7 @@ internal sealed class UpdateBarStorageCommandHandler : IRequestHandler<UpdateBar
             var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
             {
                 _logger.LogInformation("Interval: {interval}, range: from {fromDate} to {toDate}", request.BarInterval, domains.Min(x => x.Date), domains.Max(x => x.Date));
-                await unitOfWork.BarRepository.AddRange(domains, ct);
+                await unitOfWork.BarRepository.AddRangeAndSave(domains.ToList(), ct);
                 await unitOfWork.Complete(ct);
             }
         }
