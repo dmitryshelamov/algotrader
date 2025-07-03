@@ -2,5 +2,8 @@
 
 public enum BarInterval
 {
-    FiveMinutes
+    OneMinute,
+    FiveMinutes,
+    OneHour,
+    OneDay,
 }

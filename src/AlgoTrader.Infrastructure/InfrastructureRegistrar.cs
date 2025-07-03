@@ -22,7 +22,11 @@ public static class InfrastructureRegistrar
         {
             options.UseNpgsql(
                     configuration.GetConnectionString("DbContext"),
-                    x => { x.MapEnum<MarketType>(); })
+                    x =>
+                    {
+                        x.MapEnum<MarketType>();
+                        x.MapEnum<BarInterval>();
+                    })
                 .EnableSensitiveDataLogging(false);
         });
 
