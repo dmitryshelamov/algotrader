@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AlgoTrader.Infrastructure.EntityFramework;
 
-internal sealed class AlgoTraderDbContext : DbContext
+public sealed class AlgoTraderDbContext : DbContext
 {
     public DbSet<Ticker> Tickers { get; set; }
 

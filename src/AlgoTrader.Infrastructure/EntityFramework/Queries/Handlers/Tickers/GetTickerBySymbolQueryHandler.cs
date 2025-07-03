@@ -24,7 +24,8 @@ internal sealed class GetTickerBySymbolQueryHandler : IRequestHandler<GetTickerB
         var symbol = Symbol.Create(request.SymbolLeft, request.SymbolRight);
         Ticker? ticker = await _context.Tickers
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Symbol == symbol, cancellationToken);
+            .FirstOrDefaultAsync(x => x.Symbol.SymbolLeft == symbol.SymbolLeft
+                && x.Symbol.SymbolRight == symbol.SymbolRight, cancellationToken);
 
         return ticker?.ToInternal();
     }
