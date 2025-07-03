@@ -1,6 +1,6 @@
 ﻿using AlgoTrader.Application.Contracts;
 using AlgoTrader.Application.Contracts.Converters;
-using AlgoTrader.Application.Queries;
+using AlgoTrader.Application.Queries.Tickers;
 using AlgoTrader.Core.Entites;
 using AlgoTrader.Core.ValueObjects;
 

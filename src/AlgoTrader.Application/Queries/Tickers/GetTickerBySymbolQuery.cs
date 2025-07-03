@@ -2,6 +2,6 @@
 
 using MediatR;
 
-namespace AlgoTrader.Application.Queries;
+namespace AlgoTrader.Application.Queries.Tickers;
 
 public sealed record GetTickerBySymbolQuery(string SymbolLeft, string SymbolRight) : IRequest<TickerInternal?>;

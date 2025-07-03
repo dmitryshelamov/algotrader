@@ -1,6 +1,9 @@
 ﻿using AlgoTrader.Application.Commands.Tickers.CreateTicker;
 using AlgoTrader.Application.Services;
 using AlgoTrader.Core.Entites.Enums;
+using AlgoTrader.Infrastructure.BackgroundJobs;
+using AlgoTrader.Infrastructure.BackgroundJobs.Configs;
+using AlgoTrader.Infrastructure.CryptoClientsNet.ByBitExchange;
 using AlgoTrader.Infrastructure.EntityFramework;
 
 using Microsoft.EntityFrameworkCore;
@@ -37,5 +40,8 @@ public static class InfrastructureRegistrar
         });
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IExchangeRestClient, ByBitExchangeRestClient>();
+        services.Configure<JobConfig>(configuration.GetSection("JobConfig"));
+        services.AddHostedService<BarUpdateBackgroundService>();
     }
 }
