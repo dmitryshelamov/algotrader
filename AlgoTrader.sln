@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTrader.Core", "src\Algo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTrader.Application", "src\AlgoTrader.Application\AlgoTrader.Application.csproj", "{3E46244A-BC92-4830-B685-A1CB9CDD8F67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgoTrader.Infrastructure", "src\AlgoTrader.Infrastructure\AlgoTrader.Infrastructure.csproj", "{0E00317C-F5FF-4F92-82C6-1F05DA941854}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -14,6 +16,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{6164CDE8-E659-4C15-BDA0-6B911F2DA82C} = {8B0DBF03-70FD-4367-87FA-C0D69BFAEBB4}
 		{3E46244A-BC92-4830-B685-A1CB9CDD8F67} = {8B0DBF03-70FD-4367-87FA-C0D69BFAEBB4}
+		{0E00317C-F5FF-4F92-82C6-1F05DA941854} = {8B0DBF03-70FD-4367-87FA-C0D69BFAEBB4}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6164CDE8-E659-4C15-BDA0-6B911F2DA82C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -24,5 +27,9 @@ Global
 		{3E46244A-BC92-4830-B685-A1CB9CDD8F67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E46244A-BC92-4830-B685-A1CB9CDD8F67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E46244A-BC92-4830-B685-A1CB9CDD8F67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E00317C-F5FF-4F92-82C6-1F05DA941854}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E00317C-F5FF-4F92-82C6-1F05DA941854}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E00317C-F5FF-4F92-82C6-1F05DA941854}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E00317C-F5FF-4F92-82C6-1F05DA941854}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
