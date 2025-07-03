@@ -4,6 +4,6 @@ namespace AlgoTrader.Application.Services;
 
 public interface IUnitOfWork
 {
-    ITickerRepository Repository { get; }
+    ITickerRepository TickerRepository { get; }
     Task Complete(CancellationToken ct);
 }

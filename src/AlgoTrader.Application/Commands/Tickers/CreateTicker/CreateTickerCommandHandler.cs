@@ -47,7 +47,7 @@ internal sealed class CreateTickerCommandHandler : IRequestHandler<CreateTickerC
             request.MarketType.ToDomain(),
             request.TickerStartDate);
 
-        await _unitOfWork.Repository.Add(newTicker, ct);
+        await _unitOfWork.TickerRepository.Add(newTicker, ct);
         await _unitOfWork.Complete(ct);
 
         return newTicker.Id;

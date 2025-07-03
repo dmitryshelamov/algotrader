@@ -1,0 +1,21 @@
+﻿using AlgoTrader.Core.Entites;
+using AlgoTrader.Core.Entites.Enums;
+
+using Microsoft.EntityFrameworkCore;
+
+namespace AlgoTrader.Infrastructure.EntityFramework;
+
+internal sealed class AlgoTraderDbContext : DbContext
+{
+    public DbSet<Ticker> Tickers { get; set; }
+
+    public AlgoTraderDbContext(DbContextOptions options) : base(options)
+    {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.HasPostgresEnum<MarketType>();
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(AlgoTraderDbContext).Assembly);
+    }
+}
