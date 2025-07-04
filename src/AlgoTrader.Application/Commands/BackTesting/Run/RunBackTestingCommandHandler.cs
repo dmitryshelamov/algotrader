@@ -1,4 +1,6 @@
-﻿using AlgoTrader.Application.Contracts;
+﻿using System.Diagnostics;
+
+using AlgoTrader.Application.Contracts;
 using AlgoTrader.Application.Queries.Bars;
 
 using MediatR;
@@ -20,6 +22,11 @@ internal sealed class RunBackTestingCommandHandler : IRequestHandler<RunBackTest
 
     public async Task Handle(RunBackTestingCommand request, CancellationToken ct)
     {
+        var time = Stopwatch.StartNew();
+        var count = 0;
+
+        _logger.LogInformation("BackTesting started");
+
         await foreach (BarInternal bar in _mediator.CreateStream(
                            new GetBarsAsStreamQuery(
                                request.TickerId,
@@ -28,7 +35,9 @@ internal sealed class RunBackTestingCommandHandler : IRequestHandler<RunBackTest
                                request.To),
                            ct))
         {
-            _logger.Log(LogLevel.Information, "Received Bar: {@Bar}", bar);
+            count++;
         }
+
+        _logger.LogInformation("BackTesting ended, totalTime: {time}, count: {count}", time.Elapsed, count);
     }
 }
