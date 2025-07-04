@@ -92,7 +92,7 @@ internal sealed class UpdateBarStorageCommandHandler : IRequestHandler<UpdateBar
                     request.BarInterval,
                     domains.Min(x => x.Date),
                     domains.Max(x => x.Date));
-                await unitOfWork.BarRepository.AddRangeAndSave(domains.ToList(), ct);
+                await unitOfWork.BarRepository.AddRange(domains, ct);
                 await unitOfWork.Complete(ct);
             }
         }

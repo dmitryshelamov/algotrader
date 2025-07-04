@@ -50,6 +50,6 @@ internal sealed class ByBitExchangeRestClient : IExchangeRestClient
             limit: barLimit,
             ct: ct);
 
-        return response.Data.List.Select(x => x.ToInternal()).ToList();
+        return response.Data.List.Select(x => x.ToInternal(interval)).ToList();
     }
 }

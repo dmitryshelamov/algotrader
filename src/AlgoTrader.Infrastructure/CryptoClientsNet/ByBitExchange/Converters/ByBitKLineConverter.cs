@@ -1,4 +1,5 @@
 ﻿using AlgoTrader.Application.Contracts;
+using AlgoTrader.Application.Contracts.Enums;
 
 using Bybit.Net.Objects.Models.V5;
 
@@ -6,7 +7,7 @@ namespace AlgoTrader.Infrastructure.CryptoClientsNet.ByBitExchange.Converters;
 
 internal static class ByBitKLineConverter
 {
-    public static BarInternal ToInternal(this BybitKline kline)
+    public static BarInternal ToInternal(this BybitKline kline, BarIntervalInternal interval)
     {
         return new BarInternal
         {
@@ -15,7 +16,8 @@ internal static class ByBitKLineConverter
             Low = kline.LowPrice,
             Volume = kline.Volume,
             Date = kline.StartTime,
-            Open = kline.OpenPrice
+            Open = kline.OpenPrice,
+            Interval = interval,
         };
     }
 }

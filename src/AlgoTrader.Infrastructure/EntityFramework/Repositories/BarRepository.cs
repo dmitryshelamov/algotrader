@@ -14,7 +14,7 @@ internal sealed class BarRepository : IBarRepository
         _context = context;
     }
 
-    public Task AddRange(List<Bar> bars, CancellationToken ct)
+    public Task AddRange(IReadOnlyCollection<Bar> bars, CancellationToken ct)
     {
         _context.AddRange(bars);
 
