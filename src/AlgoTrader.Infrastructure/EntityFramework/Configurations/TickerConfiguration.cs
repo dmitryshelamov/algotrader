@@ -1,4 +1,4 @@
-﻿using AlgoTrader.Core.Entites;
+﻿using AlgoTrader.Core.Entities;
 using AlgoTrader.Core.ValueObjects;
 
 using Microsoft.EntityFrameworkCore;

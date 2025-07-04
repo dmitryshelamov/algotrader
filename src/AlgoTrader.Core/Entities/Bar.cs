@@ -1,7 +1,7 @@
-﻿using AlgoTrader.Core.Entites.Enums;
+﻿using AlgoTrader.Core.Entities.Enums;
 using AlgoTrader.Core.ValueObjects;
 
-namespace AlgoTrader.Core.Entites;
+namespace AlgoTrader.Core.Entities;
 
 public sealed class Bar
 {

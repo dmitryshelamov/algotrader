@@ -2,7 +2,7 @@
 using AlgoTrader.Application.Contracts.Converters;
 using AlgoTrader.Application.Queries.Tickers;
 using AlgoTrader.Application.Services;
-using AlgoTrader.Core.Entites;
+using AlgoTrader.Core.Entities;
 using AlgoTrader.Core.ValueObjects;
 
 using MediatR;

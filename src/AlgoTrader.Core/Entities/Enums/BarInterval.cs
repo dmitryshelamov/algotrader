@@ -1,4 +1,4 @@
-﻿namespace AlgoTrader.Core.Entites.Enums;
+﻿namespace AlgoTrader.Core.Entities.Enums;
 
 public enum BarInterval
 {

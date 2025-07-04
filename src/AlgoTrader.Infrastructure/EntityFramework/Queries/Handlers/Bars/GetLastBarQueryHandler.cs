@@ -1,6 +1,6 @@
 ﻿using AlgoTrader.Application.Contracts.Converters;
 using AlgoTrader.Application.Queries.Bars;
-using AlgoTrader.Core.Entites.Enums;
+using AlgoTrader.Core.Entities.Enums;
 
 using MediatR;
 

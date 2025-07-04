@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 
 using AlgoTrader.Application.Contracts.Enums;
-using AlgoTrader.Core.Entites.Enums;
+using AlgoTrader.Core.Entities.Enums;
 
 namespace AlgoTrader.Application.Contracts.Converters;
 

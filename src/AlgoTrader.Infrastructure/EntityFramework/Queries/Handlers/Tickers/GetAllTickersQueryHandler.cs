@@ -1,6 +1,6 @@
 ﻿using AlgoTrader.Application.Contracts;
 using AlgoTrader.Application.Contracts.Converters;
-using AlgoTrader.Core.Entites;
+using AlgoTrader.Core.Entities;
 
 using MediatR;
 

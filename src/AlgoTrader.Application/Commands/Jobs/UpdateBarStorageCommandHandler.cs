@@ -3,7 +3,7 @@ using AlgoTrader.Application.Contracts.Converters;
 using AlgoTrader.Application.Queries.Bars;
 using AlgoTrader.Application.Queries.Tickers;
 using AlgoTrader.Application.Services;
-using AlgoTrader.Core.Entites;
+using AlgoTrader.Core.Entities;
 
 using MediatR;
 
@@ -53,7 +53,7 @@ internal sealed class UpdateBarStorageCommandHandler : IRequestHandler<UpdateBar
                 ticker.FullSymbol,
                 request.MarketType,
                 request.BarInterval,
-                start: lastDate,
+                lastDate,
                 ct: ct);
 
             if (!newBars.Any())
@@ -87,7 +87,11 @@ internal sealed class UpdateBarStorageCommandHandler : IRequestHandler<UpdateBar
             using IServiceScope scope = _serviceScopeFactory.CreateScope();
             var unitOfWork = scope.ServiceProvider.GetRequiredService<IUnitOfWork>();
             {
-                _logger.LogInformation("Interval: {interval}, range: from {fromDate} to {toDate}", request.BarInterval, domains.Min(x => x.Date), domains.Max(x => x.Date));
+                _logger.LogInformation(
+                    "Interval: {interval}, range: from {fromDate} to {toDate}",
+                    request.BarInterval,
+                    domains.Min(x => x.Date),
+                    domains.Max(x => x.Date));
                 await unitOfWork.BarRepository.AddRangeAndSave(domains.ToList(), ct);
                 await unitOfWork.Complete(ct);
             }

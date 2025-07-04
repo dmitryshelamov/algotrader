@@ -1,7 +1,7 @@
 ﻿using AlgoTrader.Application.Contracts;
 using AlgoTrader.Application.Contracts.Converters;
 using AlgoTrader.Application.Queries.Tickers;
-using AlgoTrader.Core.Entites;
+using AlgoTrader.Core.Entities;
 using AlgoTrader.Core.ValueObjects;
 
 using MediatR;
@@ -24,8 +24,10 @@ internal sealed class GetTickerBySymbolQueryHandler : IRequestHandler<GetTickerB
         var symbol = Symbol.Create(request.SymbolLeft, request.SymbolRight);
         Ticker? ticker = await _context.Tickers
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Symbol.SymbolLeft == symbol.SymbolLeft
-                && x.Symbol.SymbolRight == symbol.SymbolRight, cancellationToken);
+            .FirstOrDefaultAsync(
+                x => x.Symbol.SymbolLeft == symbol.SymbolLeft
+                    && x.Symbol.SymbolRight == symbol.SymbolRight,
+                cancellationToken);
 
         return ticker?.ToInternal();
     }

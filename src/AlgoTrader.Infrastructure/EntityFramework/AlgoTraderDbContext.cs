@@ -1,5 +1,5 @@
-﻿using AlgoTrader.Core.Entites;
-using AlgoTrader.Core.Entites.Enums;
+﻿using AlgoTrader.Core.Entities;
+using AlgoTrader.Core.Entities.Enums;
 
 using Microsoft.EntityFrameworkCore;
 

@@ -1,6 +1,6 @@
 ﻿using AlgoTrader.Application.Commands.Tickers.CreateTicker;
 using AlgoTrader.Application.Services;
-using AlgoTrader.Core.Entites.Enums;
+using AlgoTrader.Core.Entities.Enums;
 using AlgoTrader.Infrastructure.BackgroundJobs;
 using AlgoTrader.Infrastructure.BackgroundJobs.Configs;
 using AlgoTrader.Infrastructure.CryptoClientsNet.ByBitExchange;
